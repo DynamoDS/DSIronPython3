@@ -1,0 +1,19 @@
+{
+  "license": "",
+  "file_hash": null,
+  "name": "DynamoIronPython3.4",
+  "version": "1.0.0",
+  "description": "unofficial python package for the IronPython 3 engine + stdlib ",
+  "group": "",
+  "keywords": [ "python", "ironpython", "ironpython3" ],
+  "dependencies": [],
+  "host_dependencies": [ "Revit", "Civil 3D", "Alias", "Advance Steel", "FormIt" ],
+  "contents": "",
+  "engine_version": "2.5.0.7586",
+  "engine": "dynamo",
+  "engine_metadata": "",
+  "site_url": "https://dynamobim.org/",
+  "repository_url": "https://github.com/DynamoDS/Dynamo",
+  "contains_binaries": true,
+  "node_libraries": []
+}

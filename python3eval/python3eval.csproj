@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <OutputPath>$(SolutionDir)\package_output\DSIronPython3\bin\</OutputPath>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DynamoVisualProgramming.Core" Version="2.18.0-beta3734">
+      <IncludeAssets></IncludeAssets>
+      <ExcludeAssets>runtime</ExcludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="DynamoVisualProgramming.DynamoServices" Version="2.18.0-beta3734">
+      <IncludeAssets></IncludeAssets>
+      <ExcludeAssets>runtime</ExcludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="IronPython" Version="3.4.0">
+      <IncludeAssets></IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="IronPython.StdLib" Version="3.4.0" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+  </ItemGroup>
+  
+  <Target Name="Move python libs to extra" AfterTargets="Build">
+    <ItemGroup> 
+      <MySourceFiles Include="$(OutputPath)\*lib\**;" />
+    </ItemGroup>
+
+    <Move SourceFiles="@(MySourceFiles)" DestinationFiles="$(OutputPath)..\extra\%(RecursiveDir)%(Filename)%(Extension)" />
+  </Target>
+
+  <Target Name="Remove Lib" AfterTargets="Move python libs to extra">
+    <RemoveDir
+      Directories="$(OutputPath)\lib" />
+  </Target>
+
+</Project>

@@ -1,0 +1,328 @@
+{
+  "Uuid": "ce89c912-b65e-4ed0-9c55-c3565c666bab",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "print_python_version",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "Code": "# Load the Python Standard and DesignScript Libraries\r\nimport sys\r\nimport clr\r\nclr.AddReference('ProtoGeometry')\r\nfrom Autodesk.DesignScript.Geometry import *\r\n\r\nimport platform\r\n\r\n# The inputs to this node will be stored as a list in the IN variables.\r\n#dataEnteringNode = IN\r\n\r\n# Place your code below this line\r\n\r\n# Assign your output to the OUT variable.\r\nOUT = \"*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************\" + \"\\n\" + sys.version + '\\n' + platform.python_implementation()",
+      "Engine": "CPython3",
+      "EngineName": "CPython3",
+      "VariableInputPorts": true,
+      "Id": "dccee0edd2f04a498b5c5c2421480ed7",
+      "NodeType": "PythonScriptNode",
+      "Inputs": [
+        {
+          "Id": "35221a8f772446b8a9286deb0a0c5ea3",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "f8da08184d5c4b3fb5e749cce55bef8f",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded Python script."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
+      "Id": "f2ade98f7a814a0e96fd8b43406315b5",
+      "NodeType": "ExtensionNode",
+      "Inputs": [
+        {
+          "Id": "ebae9e9346b741a4a09e8cce873eaa9f",
+          "Name": "",
+          "Description": "Node to show output from",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "06d88a33e6b0423c80f9bf1749b9b8f0",
+          "Name": "",
+          "Description": "Node output",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Visualizes a node's output"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
+      "Id": "a8eb7860d349441095ff0cd6d4850ceb",
+      "NodeType": "ExtensionNode",
+      "Inputs": [
+        {
+          "Id": "655c85e42b5d443d8d610dc6a1771dc7",
+          "Name": "",
+          "Description": "Node to show output from",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "50427f6c8c114439b49d66b88a324009",
+          "Name": "",
+          "Description": "Node output",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Visualizes a node's output"
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "Code": "# Load the Python Standard and DesignScript Libraries\r\nimport sys\r\nimport clr\r\nclr.AddReference('ProtoGeometry')\r\nfrom Autodesk.DesignScript.Geometry import *\r\n\r\nimport platform\r\n\r\n# The inputs to this node will be stored as a list in the IN variables.\r\n#dataEnteringNode = IN\r\n\r\n# Place your code below this line\r\n\r\n# Assign your output to the OUT variable.\r\nOUT = \"*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************\" + \"\\n\" + sys.version + '\\n' + platform.python_implementation()",
+      "Engine": "Unknown",
+      "EngineName": "IronPython3",
+      "VariableInputPorts": true,
+      "Id": "1684d5bcf1f8439aabcb22b8c29f00b0",
+      "NodeType": "PythonScriptNode",
+      "Inputs": [
+        {
+          "Id": "5fc67767e5f743ddbad07a51af8aadaf",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "e00227928f23495b904406e9c71d652a",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded Python script."
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "Code": "# Load the Python Standard and DesignScript Libraries\r\nimport sys\r\nimport clr\r\nclr.AddReference('ProtoGeometry')\r\nfrom Autodesk.DesignScript.Geometry import *\r\n\r\nimport platform\r\n\r\n# The inputs to this node will be stored as a list in the IN variables.\r\n#dataEnteringNode = IN\r\n\r\n# Place your code below this line\r\n\r\n# Assign your output to the OUT variable.\r\nOUT = \"*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************\" + \"\\n\" + sys.version + '\\n' + platform.python_implementation()",
+      "Engine": "IronPython2",
+      "EngineName": "IronPython2",
+      "VariableInputPorts": true,
+      "Id": "5df72b69ef0f4df0ac9fb5d43049de63",
+      "NodeType": "PythonScriptNode",
+      "Inputs": [
+        {
+          "Id": "000917c093044f418078b51964c7dfb7",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "981d40d5729c4b77b398381420626b5c",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded Python script."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
+      "Id": "35106f48558c448193588c2b9914057a",
+      "NodeType": "ExtensionNode",
+      "Inputs": [
+        {
+          "Id": "e31c88406c62483eb39ce80f43cfdac0",
+          "Name": "",
+          "Description": "Node to show output from",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "d6cd5908691546d5ad39a737f7422dca",
+          "Name": "",
+          "Description": "Node output",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Visualizes a node's output"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "f8da08184d5c4b3fb5e749cce55bef8f",
+      "End": "ebae9e9346b741a4a09e8cce873eaa9f",
+      "Id": "68311c9edd78472e9f6c1ee78220b4e3",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "e00227928f23495b904406e9c71d652a",
+      "End": "655c85e42b5d443d8d610dc6a1771dc7",
+      "Id": "33cf5c677a6842f7bcd49b3b2effd5a4",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "981d40d5729c4b77b398381420626b5c",
+      "End": "e31c88406c62483eb39ce80f43cfdac0",
+      "Id": "e15db7e9af5a45ea968e0e52b5e3fcbc",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.18",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.18.0.4436",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Id": "dccee0edd2f04a498b5c5c2421480ed7",
+        "Name": "Python Script",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 134.0,
+        "Y": 99.0
+      },
+      {
+        "Id": "f2ade98f7a814a0e96fd8b43406315b5",
+        "Name": "Watch",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 366.2022405709854,
+        "Y": 151.29215800155123
+      },
+      {
+        "Id": "a8eb7860d349441095ff0cd6d4850ceb",
+        "Name": "Watch",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 342.342423553146,
+        "Y": 383.882045973002
+      },
+      {
+        "Id": "1684d5bcf1f8439aabcb22b8c29f00b0",
+        "Name": "Python Script",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 112.49973486796375,
+        "Y": 291.47750591280118
+      },
+      {
+        "Id": "5df72b69ef0f4df0ac9fb5d43049de63",
+        "Name": "Python Script",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 13.509282413780397,
+        "Y": 510.65328147278791
+      },
+      {
+        "Id": "35106f48558c448193588c2b9914057a",
+        "Name": "Watch",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 448.72159306402631,
+        "Y": 609.5726599127895
+      }
+    ],
+    "Annotations": [],
+    "X": 260.34266653750649,
+    "Y": -2.7890711108685196,
+    "Zoom": 0.83273793691306541
+  }
+}
