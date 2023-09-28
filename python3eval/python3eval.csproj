@@ -3,26 +3,26 @@
   <PropertyGroup>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <OutputPath>$(SolutionDir)\package_output\DSIronPython3\bin\</OutputPath>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DynamoVisualProgramming.Core" Version="2.18.0-beta3734">
+    <PackageReference Include="DynamoVisualProgramming.Core" Version="3.0.0-beta6354">
       <IncludeAssets></IncludeAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="DynamoVisualProgramming.DynamoServices" Version="2.18.0-beta3734">
-      <IncludeAssets></IncludeAssets>
+    <PackageReference Include="DynamoVisualProgramming.DynamoServices" Version="3.0.0-beta6354">
+      <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="IronPython" Version="3.4.0">
+    <PackageReference Include="IronPython" Version="3.4.1">
       <IncludeAssets></IncludeAssets>
     </PackageReference>
-    <PackageReference Include="IronPython.StdLib" Version="3.4.0" />
+    <PackageReference Include="IronPython.StdLib" Version="3.4.1" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
   </ItemGroup>
   
@@ -35,8 +35,7 @@
   </Target>
 
   <Target Name="Remove Lib" AfterTargets="Move python libs to extra">
-    <RemoveDir
-      Directories="$(OutputPath)\lib" />
+    <RemoveDir Directories="$(OutputPath)\lib" />
   </Target>
 
 </Project>
