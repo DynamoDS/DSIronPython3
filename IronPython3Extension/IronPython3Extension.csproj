@@ -1,19 +1,24 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
-    <TargetFramework>netstandard2.0</TargetFramework>
     <OutputPath>$(SolutionDir)\package_output\DSIronPython3\bin\</OutputPath>
 
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DynamoVisualProgramming.Core" Version="2.18.0-beta3734">
+    <PackageReference Include="DynamoVisualProgramming.Core" Version="3.0.0-beta6354">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets></ExcludeAssets>
     </PackageReference>
+    <PackageReference Include="DynamoVisualProgramming.DynamoServices" Version="3.0.0-beta6354">
+		   <PrivateAssets>all</PrivateAssets>
+      <ExcludeAssets></ExcludeAssets>
+		</PackageReference>
+    <PackageReference Include="IronPython" Version="3.4.1" />
+    <PackageReference Include="IronPython.StdLib" Version="3.4.1" />
   </ItemGroup>
 
 </Project>
