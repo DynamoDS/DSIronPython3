@@ -1,0 +1,25 @@
+name: Publish Test Report
+
+on:
+  workflow_run:
+    workflows:
+      - DSIronPython3-VS2022Build
+    types:
+      - completed
+
+permissions:
+  contents: read
+  actions: read
+  checks: write
+
+jobs:
+  publish_test_report:
+    name: Publish Test Report
+    runs-on: ubuntu-latest
+    steps:
+      - uses: dorny/test-reporter@v1.7.0
+        with:
+          artifact: TestResults
+          name: Test Results
+          path: '*.trx'
+          reporter: dotnet-trx
