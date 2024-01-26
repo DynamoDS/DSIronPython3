@@ -37,7 +37,7 @@ jobs:
             ls
       - name: Extract DynamoRuntime
         run: |
-         7z x DynamoRuntime.zip -oDynamoRuntimeUnzipped
+         7z x DynamoRuntime.zip -o${{ github.workspace }}\DSIronPython3\IronPython3Tests\bin\Release\net8.0\DynamoRuntime
 
 
       - name: Run test with the dotnet CLI
