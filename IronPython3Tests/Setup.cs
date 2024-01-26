@@ -26,6 +26,7 @@ public class Setup
 
         var element = config.AppSettings.Settings["DynamoBasePath"];
         moduleRootFolder = element?.Value ?? string.Empty;
+        Console.WriteLine($"DynamoBasePath is set to {moduleRootFolder}")
 
         if (string.IsNullOrEmpty(moduleRootFolder))
         {
