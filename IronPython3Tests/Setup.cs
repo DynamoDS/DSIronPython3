@@ -26,15 +26,14 @@ public class Setup
 
         var element = config.AppSettings.Settings["DynamoBasePath"];
         moduleRootFolder = element?.Value ?? string.Empty;
-        Console.WriteLine($"DynamoBasePath is set to {moduleRootFolder}");
 
         if (string.IsNullOrEmpty(moduleRootFolder))
         {
-            throw new Exception("Missing DynamoBasePath in TestServices.dll.config. Please set the DynamoBasePath to a valid Dynamo bin folder.");
+            throw new Exception("Missing DynamoBasePath in TestServices.dll.config. Please set the DynamoBasePath to a valid Dynamo bin folder. DynamoBasePath is set to {moduleRootFolder}");
         }
         else if (!File.Exists(Path.Combine(moduleRootFolder, "DynamoCore.dll")))
         {
-            throw new Exception("Invalid DynamoBasePath in TestServices.dll.config. Please set the DynamoBasePath to a valid Dynamo bin folder.");
+            throw new Exception("Invalid DynamoBasePath in TestServices.dll.config. Please set the DynamoBasePath to a valid Dynamo bin folder. DynamoBasePath is set to {moduleRootFolder}");
         }
 
         resolutionPaths = new List<string>
