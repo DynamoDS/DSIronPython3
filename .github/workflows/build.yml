@@ -36,10 +36,8 @@ jobs:
             curl -o DynamoRuntime.zip https://dyn-builds-data.s3-us-west-2.amazonaws.com/DynamoCoreRuntime3.0.2.zip
             ls
       - name: Extract DynamoRuntime
-        uses: ihiroky/extract-action@v1
-        with:
-          file_path: DynamoRuntime.zip
-          extract_dir: ${{ github.workspace }}\DSIronPython3\DynamoRuntimeUnzipped
+        run: |
+         7z x DynamoRuntime.zip -oDynamoRuntimeUnzipped
 
 
       - name: Run test with the dotnet CLI
