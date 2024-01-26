@@ -28,6 +28,18 @@ jobs:
           } else {
             Write-Error "python node dll was not found!"
           }
+      - name: Get DynamoRuntime from s3
+        uses: wei/wget@v1
+        with:
+            args: -O DynamoRuntime.zip https://dyn-builds-data.s3-us-west-2.amazonaws.com/DynamoCoreRuntime3.0.2.zip
+
+      - name: Extract DynamoRuntime
+        uses: ihiroky/extract-action@v1
+        with:
+          file_path: DynamoRuntime.zip
+          extract_dir: ${{ github.workspace }}\DSIronPython3\DynamoRuntimeUnzipped
+
+
       - name: Run test with the dotnet CLI
         run: |
           dotnet test ${{ github.workspace }}\DSIronPython3 --logger "trx;LogFileName=results.trx" --results-directory ${{ github.workspace }}\DSIronPython3\TestResults
