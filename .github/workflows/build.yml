@@ -44,7 +44,7 @@ jobs:
 
       - name: Run test with the dotnet CLI
         run: |
-          dotnet test ${{ github.workspace }}\DSIronPython3 --logger "trx;LogFileName=results.trx" --results-directory ${{ github.workspace }}\DSIronPython3\TestResults
+          dotnet test ${{ github.workspace }}\DSIronPython3 -p:Configuration=Release --logger "trx;LogFileName=results.trx" --results-directory ${{ github.workspace }}\DSIronPython3\TestResults
       - name: Upload build artifact
         uses: actions/upload-artifact@v3.1.3
         with:
