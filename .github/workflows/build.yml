@@ -23,7 +23,7 @@ jobs:
         if: ${{ true }}
         run: |
           Write-Output "***Continue with the build, Good luck developer!***"
-          msbuild ${{ github.workspace }}\DSIronPython3\IronPython3Extension.sln
+          msbuild ${{ github.workspace }}\DSIronPython3\IronPython3Extension.sln -p:Configuration=Release
       - name: Look for package
         if: ${{ true }}
         run: |
