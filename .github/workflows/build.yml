@@ -15,12 +15,15 @@ jobs:
       - name: Setup msbuild
         uses: microsoft/setup-msbuild@v1.3.1
       - name: Nuget Restore DSIronPython3 solution
+        if: ${{ false }}
         run: nuget restore ${{ github.workspace }}\DSIronPython3\IronPython3Extension.sln
       - name: Build DSIronPython3 with MSBuild
+        if: ${{ false }}
         run: |
           Write-Output "***Continue with the build, Good luck developer!***"
           msbuild ${{ github.workspace }}\DSIronPython3\IronPython3Extension.sln
       - name: Look for package
+        if: ${{ false }}
         run: |
           Write-Output "***Locating iron python package!***"
           if (Test-Path -Path "${{ github.workspace }}\DSIronPython3\package_output\DSIronPython3\bin\python3eval.dll") {
@@ -31,7 +34,7 @@ jobs:
       - name: Get DynamoRuntime from s3
         run: |
             curl -o DynamoRuntime.zip https://dyn-builds-data.s3-us-west-2.amazonaws.com/DynamoCoreRuntime3.0.2.zip
-
+            ls
       - name: Extract DynamoRuntime
         uses: ihiroky/extract-action@v1
         with:
