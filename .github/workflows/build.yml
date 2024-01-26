@@ -10,6 +10,9 @@ jobs:
         with:
           path: DSIronPython3
           repository: DynamoDS/DSIronPython3
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+
       - name: Setup nuget
         uses: nuget/setup-nuget@v1.2
       - name: Setup msbuild
