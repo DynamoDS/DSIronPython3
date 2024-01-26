@@ -10,7 +10,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DynamoVisualProgramming.Tests" Version="3.0.2.7476" />
+    <Content Remove="C:\Users\kirschm\.nuget\packages\dynamovisualprogramming.tests\3.1.0-beta3874\build\TestServices.dll.config" />
+    <Content Remove="TestServices.dll.config" />
+  </ItemGroup>
+
+  <ItemGroup>
+	  <PackageReference Include="DynamoVisualProgramming.Tests" Version="3.1.0-beta3874">
+		  <PrivateAssets>all</PrivateAssets>
+	  </PackageReference>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.0" />
     <PackageReference Include="NUnit" Version="3.13.3" />
     <PackageReference Include="NUnit3TestAdapter" Version="4.2.1" />
@@ -22,5 +29,17 @@
   <ItemGroup>
     <ProjectReference Include="..\python3eval\python3eval.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <None Update="TestServices.dll.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+	<Target Name="setruntime" AfterTargets="Build">
+		<Message Text="BeforePublish" Importance="high" />
+		
+	</Target>
+
 
 </Project>
