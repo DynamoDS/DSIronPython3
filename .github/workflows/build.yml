@@ -29,9 +29,8 @@ jobs:
             Write-Error "python node dll was not found!"
           }
       - name: Get DynamoRuntime from s3
-        uses: wei/wget@v1
-        with:
-            args: -O DynamoRuntime.zip https://dyn-builds-data.s3-us-west-2.amazonaws.com/DynamoCoreRuntime3.0.2.zip
+        run: |
+            curl -o DynamoRuntime.zip https://dyn-builds-data.s3-us-west-2.amazonaws.com/DynamoCoreRuntime3.0.2.zip
 
       - name: Extract DynamoRuntime
         uses: ihiroky/extract-action@v1
