@@ -29,11 +29,11 @@ public class Setup
 
         if (string.IsNullOrEmpty(moduleRootFolder))
         {
-            throw new Exception("Missing DynamoBasePath in TestServices.dll.config. Please set the DynamoBasePath to a valid Dynamo bin folder. DynamoBasePath is set to {moduleRootFolder}");
+            throw new Exception($"Missing DynamoBasePath in TestServices.dll.config. Please set the DynamoBasePath to a valid Dynamo bin folder. DynamoBasePath is set to {moduleRootFolder}");
         }
         else if (!File.Exists(Path.Combine(moduleRootFolder, "DynamoCore.dll")))
         {
-            throw new Exception("Invalid DynamoBasePath in TestServices.dll.config. Please set the DynamoBasePath to a valid Dynamo bin folder. DynamoBasePath is set to {moduleRootFolder}");
+            throw new Exception($"Invalid DynamoBasePath in TestServices.dll.config. Please set the DynamoBasePath to a valid Dynamo bin folder. DynamoBasePath is set to {moduleRootFolder}");
         }
 
         resolutionPaths = new List<string>
