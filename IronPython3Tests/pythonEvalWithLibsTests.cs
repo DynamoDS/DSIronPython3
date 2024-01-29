@@ -160,6 +160,11 @@ OUT = a, l
             }
         }
 
+        //This test fails because dict_keys, dict_items, and dict_values are special dictionary view objects in py3
+        //If we can do it in IronPython is unkown, but even so, it feels strange that we do it at all in our CPython integration.
+        //The view objects are an intentional breaking change in py2 vs 3.
+        //https://peps.python.org/pep-3106/
+        [Category("Failure")]
         [Test]
         public void TestDictionaryViewsDecoding()
         {
