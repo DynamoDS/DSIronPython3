@@ -10,11 +10,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="C:\Users\kirschm\.nuget\packages\dynamovisualprogramming.tests\3.1.0-beta3874\build\TestServices.dll.config" />
-    <Content Remove="TestServices.dll.config" />
-  </ItemGroup>
-
-  <ItemGroup>
 	  <PackageReference Include="DynamoVisualProgramming.Tests" Version="3.1.0-beta3874">
 		  <PrivateAssets>all</PrivateAssets>
 	  </PackageReference>
@@ -35,11 +30,5 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-
-	<Target Name="setruntime" AfterTargets="Build">
-		<Message Text="BeforePublish" Importance="high" />
-		
-	</Target>
-
 
 </Project>
