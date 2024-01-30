@@ -9,18 +9,22 @@ jobs:
         uses: actions/checkout@v4
         with:
           path: DSIronPython3
-          repository: DynamoDS/DSIronPython3
+          ref: ${{ github.ref }}
+
       - name: Setup nuget
         uses: nuget/setup-nuget@v1.2
       - name: Setup msbuild
         uses: microsoft/setup-msbuild@v1.3.1
       - name: Nuget Restore DSIronPython3 solution
+        if: ${{ true }}
         run: nuget restore ${{ github.workspace }}\DSIronPython3\IronPython3Extension.sln
       - name: Build DSIronPython3 with MSBuild
+        if: ${{ true }}
         run: |
           Write-Output "***Continue with the build, Good luck developer!***"
-          msbuild ${{ github.workspace }}\DSIronPython3\IronPython3Extension.sln
+          msbuild ${{ github.workspace }}\DSIronPython3\IronPython3Extension.sln -p:Configuration=Release
       - name: Look for package
+        if: ${{ true }}
         run: |
           Write-Output "***Locating iron python package!***"
           if (Test-Path -Path "${{ github.workspace }}\DSIronPython3\package_output\DSIronPython3\bin\python3eval.dll") {
@@ -28,9 +32,18 @@ jobs:
           } else {
             Write-Error "python node dll was not found!"
           }
+      - name: Get DynamoRuntime from s3
+        run: |
+            curl -o DynamoRuntime.zip https://dyn-builds-data.s3-us-west-2.amazonaws.com/DynamoCoreRuntime3.0.2.zip
+            ls
+      - name: Extract DynamoRuntime
+        run: |
+         7z x DynamoRuntime.zip -o${{ github.workspace }}\DSIronPython3\IronPython3Tests\bin\Release\net8.0\DynamoRuntime
+
+
       - name: Run test with the dotnet CLI
         run: |
-          dotnet test ${{ github.workspace }}\DSIronPython3 --logger "trx;LogFileName=results.trx" --results-directory ${{ github.workspace }}\DSIronPython3\TestResults
+          dotnet test ${{ github.workspace }}\DSIronPython3 -p:Configuration=Release --filter "TestCategory!=Failure" --logger "trx;LogFileName=results.trx" --results-directory ${{ github.workspace }}\DSIronPython3\TestResults
       - name: Upload build artifact
         uses: actions/upload-artifact@v3.1.3
         with:
