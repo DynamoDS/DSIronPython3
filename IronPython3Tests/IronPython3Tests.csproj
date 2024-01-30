@@ -10,9 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-	  <PackageReference Include="DynamoVisualProgramming.Tests" Version="3.1.0-beta3874">
-		  <PrivateAssets>all</PrivateAssets>
-	  </PackageReference>
+	<PackageReference Include="DynamoVisualProgramming.Tests" Version="3.1.0-beta3874" />
     <PackageReference Include="coverlet.collector" Version="6.0.0" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.0" />
   </ItemGroup>
