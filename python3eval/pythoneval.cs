@@ -92,6 +92,7 @@ namespace IronPython3.Evaluator
             //which were moved in .Net. These types are now importable by python code without users needing to add
             //clr.addreference.
             //TODO consider a preference for this.
+            //TODO test smaller shims...netstd.dll
             engine.Runtime.LoadAssembly(Assembly.Load("System"));
 
 
