@@ -64,7 +64,14 @@ namespace IronPython3.Evaluator
             if (code != prev_code)
             {
                 var pythonEngine = Python.CreateEngine();
-              
+                //to maintain compatability with ironPython code written in .netframework - we load the system.dll shim
+                //which loads many types which used to be in system.dll(mscorlib) like system.diagnostics.process
+                //which were moved in .Net. These types are now importable by python code without users needing to add
+                //clr.addreference.
+                //TODO consider a preference for this.
+                //TODO test smaller shims...netstd.dll
+                pythonEngine.Runtime.LoadAssembly(Assembly.Load("System"));
+
                 if (!string.IsNullOrEmpty(stdLib))
                 {
                     paths = pythonEngine.GetSearchPaths().ToList();
@@ -87,14 +94,6 @@ namespace IronPython3.Evaluator
             ScriptScope scope = engine.CreateScope();
             // For backwards compatibility: "sys" was imported by default due to a bug so we keep it that way
             scope.ImportModule("sys");
-            //to maintain compatability with ironPython code written in .netframework - we load the system.dll shim
-            //which loads many types which used to be in system.dll(mscorlib) like system.diagnostics.process
-            //which were moved in .Net. These types are now importable by python code without users needing to add
-            //clr.addreference.
-            //TODO consider a preference for this.
-            //TODO test smaller shims...netstd.dll
-            engine.Runtime.LoadAssembly(Assembly.Load("System"));
-
 
             ProcessAdditionalBindings(scope, bindingNames, bindingValues, engine);
 
