@@ -67,8 +67,10 @@ OUT = (version_long,proc)
                     new ArrayList(),
                     new ArrayList()
                 );
-
-                Assert.AreEqual(new []{ "3","dotnet"}, output);
+                Assert.AreEqual("3", (output as IList)[0]);
+                //we do this because the process name can change depending
+                //on where tests are running.
+                Assert.IsNotEmpty((string?)(output as IList)[1]);
             }
         }
 
