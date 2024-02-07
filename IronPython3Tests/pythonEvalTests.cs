@@ -48,6 +48,33 @@ namespace IronPython3Tests
 
         [Test]
         [Category("UnitTests")]
+        public void SysDiagProccess_AndOtherShimmedCLRTypesWork()
+        {
+
+          
+            foreach (var pythonEvaluator in Evaluators)
+            {
+                var output = pythonEvaluator(
+                    @"
+import clr
+from System.Reflection import Assembly
+from System.Diagnostics import Process
+dynamoCore = Assembly.Load(""DynamoCore"")
+version_long = dynamoCore.GetName().Version.Major.ToString()
+proc = Process.GetCurrentProcess().ProcessName
+OUT = (version_long,proc)
+",
+                    new ArrayList(),
+                    new ArrayList()
+                );
+
+                Assert.AreEqual(new []{ "3","dotnet"}, output);
+            }
+        }
+
+
+        [Test]
+        [Category("UnitTests")]
         public void DataMarshaling_Output()
         {
             var marshaler = IronPython3.Evaluator.IronPython3Evaluator.OutputMarshaler;
