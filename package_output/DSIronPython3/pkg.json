@@ -15,5 +15,5 @@
   "site_url": "https://dynamobim.org/",
   "repository_url": "https://github.com/DynamoDS/Dynamo",
   "contains_binaries": true,
-  "node_libraries": ["python3eval"]
+  "node_libraries": [ "DSIronPython3Empty, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" ]
 }

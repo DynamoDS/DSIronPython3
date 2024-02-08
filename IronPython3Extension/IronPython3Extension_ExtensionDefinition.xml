@@ -1,0 +1,4 @@
+﻿<ExtensionDefinition>
+	<AssemblyPath>IronPython3Extension.dll</AssemblyPath>
+	<TypeName>IronPython3Extension.IronPython3Extension</TypeName>
+</ExtensionDefinition>

@@ -1,4 +1,5 @@
 using Dynamo;
+using Microsoft.Extensions.Configuration;
 using NUnit.Framework;
 using System.Collections;
 
@@ -72,6 +73,34 @@ OUT = (version_long,proc)
                 //on where tests are running.
                 Assert.IsNotEmpty((string?)(output as IList)[1]);
             }
+        }
+        [Test]
+        [Category("UnitTests")]
+        public void ConfigLoadShimsCanBeDisabled()
+        {
+
+            var configb = new ConfigurationBuilder();
+            var config = configb.AddInMemoryCollection(new Dictionary<string, string>()
+            {
+                {"config:CONFIG_ENABLE_NET48SHIMCOMPAT","false" }
+            }).Build();
+
+            var evaluator = new IronPython3.Evaluator.IronPython3Evaluator(config);
+
+            var e = Assert.Throws<Exception>(() =>
+            {
+                var output = evaluator.Evaluate(
+                    @"
+import clr
+from System.Reflection import Assembly
+from System.Diagnostics import Process
+",
+                    new ArrayList(),
+                    new ArrayList()
+                );
+
+            });
+            StringAssert.Contains("ImportError", e.Message);
         }
 
 

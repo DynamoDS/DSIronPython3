@@ -4,7 +4,7 @@
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
     <TargetFramework>net8.0</TargetFramework>
-    <OutputPath>$(SolutionDir)\package_output\DSIronPython3\bin\</OutputPath>
+    <OutputPath>$(SolutionDir)\package_output\DSIronPython3\extra\</OutputPath>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
 	  <AssemblyVersion>1.4.0</AssemblyVersion>
   </PropertyGroup>
@@ -25,18 +25,14 @@
     </PackageReference>
     <PackageReference Include="IronPython.StdLib" Version="3.4.1" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   
-  <Target Name="Move python libs to extra" AfterTargets="Build">
-    <ItemGroup> 
-      <MySourceFiles Include="$(OutputPath)\*lib\**;" />
-    </ItemGroup>
-
-    <Move SourceFiles="@(MySourceFiles)" DestinationFiles="$(OutputPath)..\extra\%(RecursiveDir)%(Filename)%(Extension)" />
-  </Target>
-
-  <Target Name="Remove Lib" AfterTargets="Move python libs to extra">
-    <RemoveDir Directories="$(OutputPath)\lib" />
-  </Target>
 
 </Project>
