@@ -2,8 +2,8 @@
   "license": "",
   "file_hash": null,
   "name": "DynamoIronPython3",
-  "version": "1.0.0",
-  "description": "unofficial python package for the IronPython 3 engine + stdlib ",
+  "version": "1.4.0",
+  "description": "unofficial python package for the IronPython 3 engine + stdlib. If you are using Dynamo < 3.x use package version < 1.2 ",
   "group": "",
   "keywords": [ "python", "ironpython", "ironpython3" ],
   "dependencies": [],
@@ -15,5 +15,5 @@
   "site_url": "https://dynamobim.org/",
   "repository_url": "https://github.com/DynamoDS/Dynamo",
   "contains_binaries": true,
-  "node_libraries": ["python3eval"]
+  "node_libraries": [ "DSIronPython3Empty, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" ]
 }

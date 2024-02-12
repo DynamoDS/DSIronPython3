@@ -27,7 +27,7 @@ jobs:
         if: ${{ true }}
         run: |
           Write-Output "***Locating iron python package!***"
-          if (Test-Path -Path "${{ github.workspace }}\DSIronPython3\package_output\DSIronPython3\bin\python3eval.dll") {
+          if (Test-Path -Path "${{ github.workspace }}\DSIronPython3\package_output\DSIronPython3\extra\python3eval.dll") {
             Write-Output "python node dll exists!"
           } else {
             Write-Error "python node dll was not found!"

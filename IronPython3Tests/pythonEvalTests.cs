@@ -1,4 +1,5 @@
 using Dynamo;
+using Microsoft.Extensions.Configuration;
 using NUnit.Framework;
 using System.Collections;
 
@@ -45,6 +46,63 @@ namespace IronPython3Tests
                 Assert.AreEqual(expected, output);
             }
         }
+
+        [Test]
+        [Category("UnitTests")]
+        public void SysDiagProccess_AndOtherShimmedCLRTypesWork()
+        {
+
+          
+            foreach (var pythonEvaluator in Evaluators)
+            {
+                var output = pythonEvaluator(
+                    @"
+import clr
+from System.Reflection import Assembly
+from System.Diagnostics import Process
+dynamoCore = Assembly.Load(""DynamoCore"")
+version_long = dynamoCore.GetName().Version.Major.ToString()
+proc = Process.GetCurrentProcess().ProcessName
+OUT = (version_long,proc)
+",
+                    new ArrayList(),
+                    new ArrayList()
+                );
+                Assert.AreEqual("3", (output as IList)[0]);
+                //we do this because the process name can change depending
+                //on where tests are running.
+                Assert.IsNotEmpty((string?)(output as IList)[1]);
+            }
+        }
+        [Test]
+        [Category("UnitTests")]
+        public void ConfigLoadShimsCanBeDisabled()
+        {
+
+            var configb = new ConfigurationBuilder();
+            var config = configb.AddInMemoryCollection(new Dictionary<string, string>()
+            {
+                {"config:CONFIG_ENABLE_NET48SHIMCOMPAT","false" }
+            }).Build();
+
+            var evaluator = new IronPython3.Evaluator.IronPython3Evaluator(config);
+
+            var e = Assert.Throws<Exception>(() =>
+            {
+                var output = evaluator.Evaluate(
+                    @"
+import clr
+from System.Reflection import Assembly
+from System.Diagnostics import Process
+",
+                    new ArrayList(),
+                    new ArrayList()
+                );
+
+            });
+            StringAssert.Contains("ImportError", e.Message);
+        }
+
 
         [Test]
         [Category("UnitTests")]

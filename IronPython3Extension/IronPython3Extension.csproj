@@ -4,8 +4,8 @@
     <TargetFramework>net8.0</TargetFramework>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
-    <OutputPath>$(SolutionDir)\package_output\DSIronPython3\bin\</OutputPath>
-	<AssemblyVersion>1.0.2</AssemblyVersion>
+    <OutputPath>$(SolutionDir)\package_output\DSIronPython3\extra\</OutputPath>
+	<AssemblyVersion>1.4.0</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,6 +19,12 @@
 		</PackageReference>
     <PackageReference Include="IronPython" Version="3.4.1" />
     <PackageReference Include="IronPython.StdLib" Version="3.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="IronPython3Extension_ExtensionDefinition.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
