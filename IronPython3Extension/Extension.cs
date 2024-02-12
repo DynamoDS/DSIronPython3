@@ -69,7 +69,7 @@ namespace IronPython3Extension
         {
             if (assembly == null)
             {
-                return;
+                throw new ArgumentNullException($"Error while loading python engine - assembly {PythonEvaluatorAssembly}.dll was not loaded successfully.");
             }
 
             // Currently we are using try-catch to validate loaded assembly and Singleton Instance method exist
