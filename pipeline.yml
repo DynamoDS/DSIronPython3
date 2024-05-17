@@ -1,0 +1,34 @@
+version: 0.1.1
+env:
+  - JENKINS_NODE_WIN: "DynamoWinBuild"
+  - SLACK_QUANTUM_BUILD_CHANNEL : "#dynamo-jenkinsbuild"
+  - SLACK_QUANTUM_BUILD_CREDENTIAL_ID : "slack-notify-token"
+  - MAIL_QUANTUM_BUILD_RECIPIENT : "dynamo.dev@autodesk.com"
+
+check_changelog_updated_on_pr: false
+pipeline_os: "Windows"
+force_slack_notification : true
+language: csharp
+
+schedule :
+  cron_schedule : once_a_week
+
+build:
+  -
+    scripts:
+      - "dotnet build --configuration Release IronPython3Extension.sln"
+
+ci_test:
+  tests:    
+    -
+      scripts:
+        - "dotnet test --no-build --configuration Release IronPython3Extension.sln --logger:junit"   
+  test_report_dir: "./IronPython3Tests/TestResults"
+
+soc2:
+  harmony:
+    allow_branches:
+      - master
+    hidden_email_list: dynamo_ws_access
+    third_party_lib_paths:
+      - package_output
