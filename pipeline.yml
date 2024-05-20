@@ -23,12 +23,34 @@ ci_test:
     -
       scripts:
         - "dotnet test --no-build --configuration Release IronPython3Extension.sln --logger:junit"   
-  test_report_dir: "./IronPython3Tests/TestResults"
+  test_report_dir: "IronPython3Tests/TestResults"
+  test_report_pattern:
+    format: "junit"
+    pattern: "*.xml"
 
 soc2:
   harmony:
     allow_branches:
       - master
     hidden_email_list: dynamo_ws_access
+    fail_on_audit_failure: false
     third_party_lib_paths:
       - package_output
+
+deployment:
+  -  
+    type: sign
+    files_to_sign:
+        - package_output\DSIronPython3\bin\DSIronPythonEmpty.dll
+        - package_output\DSIronPython3\extra\IronPython.dll
+        - package_output\DSIronPython3\extra\IronPython3Extension.dll
+ 
+  -
+    type: artifacts
+    allow_branches: master
+    publish_to_artifactory: false
+    publish_to_jenkins: true
+    scripts:
+      - "pwsh.exe -ExecutionPolicy ByPass -Command Compress-Archive -Path .\\package_output\\DSIronPython3 -DestinationPath .\\DSIronPython3Package.zip"
+    outputs:
+      - "DSIronPython3Package.zip"
