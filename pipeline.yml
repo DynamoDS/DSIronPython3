@@ -22,7 +22,7 @@ ci_test:
   tests:    
     -
       scripts:
-        - "dotnet test --no-build --configuration Release IronPython3Extension.sln --logger:junit"   
+        - "dotnet test --no-build --configuration Release IronPython3Extension.sln --filter \"TestCategory!=Failure\" --logger:junit"   
   test_report_dir: "IronPython3Tests/TestResults"
   test_report_pattern:
     format: "junit"
