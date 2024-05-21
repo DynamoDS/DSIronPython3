@@ -41,7 +41,7 @@ deployment:
   -  
     type: sign
     files_to_sign:
-        - package_output\DSIronPython3\bin\DSIronPythonEmpty.dll
+        - package_output\DSIronPython3\bin\DSIronPython3Empty.dll
         - package_output\DSIronPython3\extra\python3eval.dll
         - package_output\DSIronPython3\extra\IronPython3Extension.dll
  
