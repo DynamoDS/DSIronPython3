@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 
 @Library('PSL@master')
-@Library('CILibrary@CBP/stable') _
+@Library('CILibrary@feature/sonarscanner-dotnet') _
 
 StartPipeline()
 
