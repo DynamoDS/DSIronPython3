@@ -12,6 +12,7 @@
   <ItemGroup>
 	<PackageReference Include="DynamoVisualProgramming.Tests" Version="3.1.0-beta3874" />
     <PackageReference Include="coverlet.collector" Version="6.0.0" />
+    <PackageReference Include="JunitXml.TestLogger" Version="3.0.124" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.0" />
   </ItemGroup>
 
@@ -24,5 +25,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-
+	<Target Name="DownloadDynamoAndUnzip" BeforeTargets="Build">
+		<DownloadFile SourceUrl="https://dyn-builds-data.s3-us-west-2.amazonaws.com/DynamoCoreRuntime_3.1.0.3952_20240131T0007.zip" DestinationFolder="$(MSBuildProjectDirectory)" />
+		<Unzip SourceFiles="DynamoCoreRuntime_3.1.0.3952_20240131T0007.zip" DestinationFolder="$(OutputPath)\DynamoRuntime" OverwriteReadOnlyFiles="true" />
+	</Target>
 </Project>
