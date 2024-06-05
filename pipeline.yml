@@ -22,7 +22,7 @@ ci_test:
   tests:    
     -
       scripts:
-        - dotnet coverage collect "dotnet test --no-build --configuration Release IronPython3Extension.sln --filter TestCategory!=Failure --logger:junit  --logger:trx" -f xml -o "coverage.xml"
+        - dotnet coverage collect "dotnet test --no-build --configuration Release IronPython3Extension.sln --filter \"TestCategory!=Failure\" --logger:junit  --logger:trx" -f xml -o "coverage.xml"
   test_report_dir: "IronPython3Tests/TestResults"
   test_report_pattern:
     format: "junit"
