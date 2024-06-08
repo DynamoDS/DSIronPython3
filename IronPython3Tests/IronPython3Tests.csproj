@@ -1,32 +1,27 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
   </PropertyGroup>
-
   <ItemGroup>
-	<PackageReference Include="DynamoVisualProgramming.Tests" Version="3.1.0-beta3874" />
+  <PackageReference Include="DynamoVisualProgramming.Tests" Version="3.1.0-beta3874" />
     <PackageReference Include="coverlet.collector" Version="6.0.0" />
     <PackageReference Include="JunitXml.TestLogger" Version="3.0.124" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.0" />
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\python3eval\python3eval.csproj" />
   </ItemGroup>
-
   <ItemGroup>
     <None Update="TestServices.dll.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-	<Target Name="DownloadDynamoAndUnzip" BeforeTargets="Build">
-		<DownloadFile SourceUrl="https://dyn-builds-data.s3-us-west-2.amazonaws.com/DynamoCoreRuntime_3.1.0.3952_20240131T0007.zip" DestinationFolder="$(MSBuildProjectDirectory)" />
-		<Unzip SourceFiles="DynamoCoreRuntime_3.1.0.3952_20240131T0007.zip" DestinationFolder="$(OutputPath)\DynamoRuntime" OverwriteReadOnlyFiles="true" />
-	</Target>
+  <Target Name="DownloadDynamoAndUnzip" BeforeTargets="Build">
+    <DownloadFile SourceUrl="https://downloads.dynamobuilds.com/DynamoCoreRuntime3.1.0.zip" DestinationFolder="$(MSBuildProjectDirectory)" />
+    <Unzip SourceFiles="DynamoCoreRuntime3.1.0.zip" DestinationFolder="$(OutputPath)\DynamoRuntime" OverwriteReadOnlyFiles="true" />
+  </Target>
 </Project>
