@@ -3,7 +3,7 @@
   "file_hash": null,
   "name": "DynamoIronPython3",
   "version": "1.4.0",
-  "description": "unofficial python package for the IronPython 3 engine + stdlib. If you are using Dynamo < 3.x use package version < 1.2 ",
+  "description": "***This is an unofficial version of the IronPython 3 Extension and Standard Library which will load the IronPython3 evaluation engine for Dynamo.\r\n\r\nDue to Dynamo's framework update from .NET4.8 to .NET8.0, you need to use the following versions of IronPython3:\r\n\r\n1. For Dynamo versions in the 2.X series, use IronPython3 versions less than 1.2\r\n2. For Dynamo versions in the 3.X series and above, use IronPython3 versions 1.3.1 or greater***",
   "group": "",
   "keywords": [ "python", "ironpython", "ironpython3" ],
   "dependencies": [],
