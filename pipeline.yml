@@ -56,8 +56,10 @@ deployment:
     type: artifacts
     allow_branches: master
     publish_to_artifactory: false
-    publish_to_jenkins: true
+    publish_to_jenkins: false
+    publish_to_package_manager: true
     scripts:
       - "pwsh.exe -ExecutionPolicy ByPass -Command Compress-Archive -Path .\\package_output\\DSIronPython3 -DestinationPath .\\DSIronPython3Package.zip"
+    package_version: 1.0.${env.BUILD_NUMBER}
     outputs:
       - "DSIronPython3Package.zip"
