@@ -58,6 +58,5 @@ deployment:
     publish_to_artifactory: false
     publish_to_package_manager: true
     use_dev_pm: false
-    allow_branches: ".*"
     outputs:
       - "DSIronPython3Package.zip"
