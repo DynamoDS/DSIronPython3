@@ -1,6 +1,6 @@
 version: 1.5.1
 env:
-  - JENKINS_NODE_WIN: "CDA-VS22-SVC"
+  - JENKINS_NODE_WIN: "CDA-VS22-DT"
   - SLACK_QUANTUM_BUILD_CHANNEL : "#dynamo-jenkinsbuild"
   - SLACK_QUANTUM_BUILD_CREDENTIAL_ID : "slack-notify-token"
   - MAIL_QUANTUM_BUILD_RECIPIENT : "dynamo.dev@autodesk.com"
@@ -58,5 +58,7 @@ deployment:
     publish_to_artifactory: false
     publish_to_package_manager: true
     use_dev_pm: false
+    scripts:
+      - "pwsh.exe -ExecutionPolicy ByPass -Command Compress-Archive -Path .\\package_output\\DSIronPython -DestinationPath .\\DSIronPythonPackage.zip"
     outputs:
       - "DSIronPython3Package.zip"
