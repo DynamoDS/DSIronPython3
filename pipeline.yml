@@ -59,6 +59,6 @@ deployment:
     publish_to_package_manager: true
     use_dev_pm: false
     scripts:
-      - "pwsh.exe -ExecutionPolicy ByPass -Command Compress-Archive -Path .\\package_output\\DSIronPython -DestinationPath .\\DSIronPythonPackage.zip"
+      - "pwsh.exe -ExecutionPolicy ByPass -Command Compress-Archive -Path .\\package_output\\DSIronPython3 -DestinationPath .\\DSIronPython3Package.zip"
     outputs:
       - "DSIronPython3Package.zip"
