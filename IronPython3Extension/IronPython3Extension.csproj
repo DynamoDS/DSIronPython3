@@ -17,8 +17,8 @@
 		   <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets></ExcludeAssets>
 		</PackageReference>
-    <PackageReference Include="IronPython" Version="3.4.1" />
-    <PackageReference Include="IronPython.StdLib" Version="3.4.1" />
+    <PackageReference Include="IronPython" Version="3.4.2" />
+    <PackageReference Include="IronPython.StdLib" Version="3.4.2" />
   </ItemGroup>
 
   <ItemGroup>

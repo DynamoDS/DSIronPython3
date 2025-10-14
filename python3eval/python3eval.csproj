@@ -20,10 +20,10 @@
       <ExcludeAssets>runtime</ExcludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="IronPython" Version="3.4.1">
+    <PackageReference Include="IronPython" Version="3.4.2">
       <IncludeAssets></IncludeAssets>
     </PackageReference>
-    <PackageReference Include="IronPython.StdLib" Version="3.4.1" />
+    <PackageReference Include="IronPython.StdLib" Version="3.4.2" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
   </ItemGroup>
