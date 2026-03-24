@@ -1,4 +1,6 @@
 # DSIronPython3
+
+[![Build Status](https://c007.cloudbees-ci.autodesk.com/buildStatus/icon?job=DYNCI%2FDynamo%2FDSIronPython3%2Fmaster)](https://c007.cloudbees-ci.autodesk.com/job/DYNCI/job/Dynamo/job/DSIronPython3/job/master/)
 unoffical ironpython3 engine package/extension for dynamo leveraging dynamic python engine loading in Dynamo 2.18+
 
 This dynamo package contains the ironPython3 engine and stdlib.
