@@ -1,27 +1,25 @@
 version: 1.6.0
 env:
-  - JENKINS_NODE_WIN: "CDA-VS22-DT"
-  - SLACK_QUANTUM_BUILD_CHANNEL : "#dynamo-jenkinsbuild"
-  - SLACK_QUANTUM_BUILD_CREDENTIAL_ID : "slack-notify-token"
-  - MAIL_QUANTUM_BUILD_RECIPIENT : "dynamo.dev@autodesk.com"
+  - JENKINS_NODE_WIN: "CDA-VS22-CBCI-DT"
+  - SLACK_QUANTUM_BUILD_CHANNEL: "#dynamo-jenkinsbuild"
+  - SLACK_QUANTUM_BUILD_CREDENTIAL_ID: "slack-notify-token"
+  - MAIL_QUANTUM_BUILD_RECIPIENT: "dynamo.dev@autodesk.com"
 
 check_changelog_updated_on_pr: false
 pipeline_os: "Windows"
-force_slack_notification : true
+force_slack_notification: true
 language: csharp
 
-schedule :
-  cron_schedule : once_a_week
+schedule:
+  cron_schedule: once_a_week
 
 build:
-  -
-    scripts:
+  - scripts:
       - dotnet build --configuration Release IronPython3Extension.sln
 
 ci_test:
-  tests:    
-    -
-      scripts:
+  tests:
+    - scripts:
         - dotnet coverage collect "dotnet test --no-build --configuration Release IronPython3Extension.sln --filter \"TestCategory!=Failure\" --logger:junit  --logger:trx" -f xml -o "coverage.xml"
   test_report_dir: "IronPython3Tests/TestResults"
   test_report_pattern:
@@ -45,15 +43,13 @@ soc2:
       - package_output
 
 deployment:
-  -  
-    type: sign
+  - type: sign
     files_to_sign:
-        - package_output\DSIronPython3\bin\DSIronPython3Empty.dll
-        - package_output\DSIronPython3\extra\python3eval.dll
-        - package_output\DSIronPython3\extra\IronPython3Extension.dll
- 
-  -
-    type: artifacts
+      - package_output\DSIronPython3\bin\DSIronPython3Empty.dll
+      - package_output\DSIronPython3\extra\python3eval.dll
+      - package_output\DSIronPython3\extra\IronPython3Extension.dll
+
+  - type: artifacts
     publish_to_jenkins: true
     publish_to_artifactory: false
     publish_to_package_manager: true
